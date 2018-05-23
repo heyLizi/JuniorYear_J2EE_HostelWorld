@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <!-- hibernate dialect 
+ JDBC connection properties (begin) 
+ MySQL -->
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hostelworld</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.use_outer_join">true</property>
+  <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+  <property name="hibernate.hbm2ddl.auto">update</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</property>
+  <mapping class="PersistenceModel.bookHostelBean"/>
+  <mapping class="PersistenceModel.checkapplicationBean"/>
+  <mapping class="PersistenceModel.hostelBean"/>
+  <mapping class="PersistenceModel.hostelownerBean"/>
+  <mapping class="PersistenceModel.inAndoutBean"/>
+  <mapping class="PersistenceModel.membershipBean"/>
+  <mapping class="PersistenceModel.membershipCardBean"/>
+  <mapping class="PersistenceModel.releaseInfoBean"/>
+  <mapping class="PersistenceModel.bankaccountBean"/>
+  <mapping class="PersistenceModel.roomBean"/>
+  <mapping class="PersistenceModel.hostelManagerBean"/>
+  <mapping class="PersistenceModel.hostelAccountBean"/>
+  <mapping class="PersistenceModel.manageAccountBean"/>
+  <mapping class="PersistenceModel.hostelUpdateBean"/>
+ </session-factory>
+</hibernate-configuration>

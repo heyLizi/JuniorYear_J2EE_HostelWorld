@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring配置文件的根元素，使用spring-beans-4.0.xsd语言约束 -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<!-- 配置sessionFactory对象 -->  
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean>
+	
+	<!-- 申请会员逻辑类 -->
+	<bean id="signUpImpl" class="dao.impl.signUpImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="membership">
+			<ref bean="membershipBean"/>
+		</property>
+		<property name="hostelowner">
+			<ref bean="hostelownerBean"/>
+		</property>
+	</bean>
+	
+	<!-- 申请会员卡逻辑类 -->
+	<bean id="membershipCardImpl" class="dao.impl.membershipCardImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="membershipCard">
+			<ref bean="membershipCardBean"/>
+		</property>
+	</bean>
+	
+	<!-- 充值逻辑类 -->
+	<bean id="rechargeImpl" class="dao.impl.rechargeImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 积分查询和兑换类 -->
+	<bean id="creditsManageImpl" class="dao.impl.creditsManageImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 申请酒店类 -->
+	<bean id="hostelApplicationImpl" class="dao.impl.hostelApplicationImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="checkapplication">
+			<ref bean="checkapplicationBean"/>
+		</property>
+	</bean>
+	
+	<!-- 审核酒店类 -->
+	<bean id="checkApplicationImpl" class="dao.impl.checkApplicationImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="hostel">
+			<ref bean="hostelBean"/>
+		</property>
+		<property name="manageAccount">
+			<ref bean="manageAccountBean"/>
+		</property>
+		<property name="hostelAccount">
+			<ref bean="hostelAccountBean"/>
+		</property>
+	</bean>
+	
+	<!-- 发布酒店计划类 -->
+	<bean id="releasePlanImpl" class="dao.impl.releasePlanImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="releaseInfo">
+			<ref bean="releaseInfoBean"/>
+		</property>
+	</bean>
+	
+	<!-- 预订搜索类 -->
+	<bean id="bookSearchImpl" class="dao.impl.bookSearchImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 检查是否还有空余的房间 -->
+	<bean id="checkRoomImpl" class="dao.impl.checkRoomImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 预订房间类 -->
+	<bean id="bookRoomImpl" class="dao.impl.bookRoomImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="bookHostel">
+			<ref bean="bookHostelBean"/>
+		</property>
+	</bean>
+	
+	<!-- 查询自己预订订单类 -->
+	<bean id="searchMyBookImpl" class="dao.impl.searchMyBookImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 删除指定订单ID的订单   取消订单类-->
+	<bean id="cancelBookImpl" class="dao.impl.cancelBookImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 酒店查询特定会员的订单类 -->
+	<bean id="hostelSearchBookImpl" class="dao.impl.hostelSearchBookImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 酒店入住和离宿类 -->
+	<bean id="inORoutImpl" class="dao.impl.inORoutImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="bookHostel">
+			<ref bean="bookHostelBean"/>
+		</property>
+	</bean>
+	
+	<!-- 获得会员或者店家的信息类 -->
+	<bean id="getUserInfoImpl" class="dao.impl.getUserInfoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="membership">
+			<ref bean="membershipBean"/>
+		</property>
+		<property name="hostelowner">
+			<ref bean="hostelownerBean"/>
+		</property>
+		<property name="hostelManager">
+			<ref bean="hostelManagerBean"/>
+		</property>
+	</bean>
+	
+	<!-- 登录逻辑类 -->
+	<bean id="loginImpl" class="dao.impl.loginImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 得到会员卡信息类 -->
+	<bean id="getCardInfoImpl" class="dao.impl.getCardInfoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="membershipCard">
+			<ref bean="membershipCardBean"/>
+		</property>
+	</bean>
+	
+	<!-- 得到酒店的详细信息 -->
+	<bean id="getHostelInfoImpl" class="dao.impl.getHostelInfoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="hostelInfo">
+			<ref bean="hostelBean"/>
+		</property>
+	</bean>
+	
+	<!-- 判断是否在申请 -->
+	<bean id="isApplyingImpl" class="dao.impl.isApplyingImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 得到所有的计划类 -->
+	<bean id="getAllPlanImpl" class="dao.impl.getAllPlanImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 得到特定计划类  通过计划ID得到计划类 -->
+	<bean id="getSpecialPlanImpl" class="dao.impl.getSpecialPlanImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="releaseInfo">
+			<ref bean="releaseInfoBean"/>
+		</property>
+	</bean>
+	
+	<!-- 酒店经理结算类 -->
+	<bean id="settlementImpl" class="dao.impl.settlementImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 酒店统计信息类 -->
+	<bean id="hostelStatisticsImpl" class="dao.impl.hostelStatisticsImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 酒店经理统计类 -->
+	<bean id="managerStatisticsImpl" class="dao.impl.managerStatisticsImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 会员卡管理类 -->
+	<bean id="cardManageImpl" class="dao.impl.cardManageImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- 修改酒店申请类 -->
+	<bean id="hostelUpdateImpl" class="dao.impl.hostelUpdateImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="hostelUpdate">
+			<ref bean="hostelUpdateBean"/>
+		</property>
+	</bean>
+	
+	<!-- 审核酒店修改信息类 -->
+	<bean id="checkUpdateImpl" class="dao.impl.ckeckUpdateImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- ModelBean的spring配置 -->
+	<bean id="membershipBean"  class="PersistenceModel.membershipBean">
+	</bean>
+	
+	<bean id="hostelownerBean" class="PersistenceModel.hostelownerBean">
+	</bean>
+	
+	<bean id="membershipCardBean" class="PersistenceModel.membershipCardBean">
+	</bean>
+	
+	<bean id="hostelBean" class="PersistenceModel.hostelBean">
+	</bean>
+	
+	<bean id="checkapplicationBean" class="PersistenceModel.checkapplicationBean">
+	</bean>
+	
+	<bean id="releaseInfoBean" class="PersistenceModel.releaseInfoBean">
+	</bean>
+	
+	<bean id="bookHostelBean" class="PersistenceModel.bookHostelBean">
+	</bean>
+	
+	<bean id="roomBean" class="PersistenceModel.roomBean">
+	</bean>
+	
+	<bean id="inAndoutBean" class="PersistenceModel.inAndoutBean">
+	</bean>
+	
+	<bean id="hostelManagerBean" class="PersistenceModel.hostelManagerBean">
+	</bean>
+	
+	<bean id="hostelAccountBean" class="PersistenceModel.hostelAccountBean">
+	</bean>
+	
+	<bean id="manageAccountBean" class="PersistenceModel.manageAccountBean">
+	</bean>
+	
+	<bean id="hostelUpdateBean" class="PersistenceModel.hostelUpdateBean">
+	</bean>
+	<!-- ModelBean的spring配置 -->
+	
+</beans>

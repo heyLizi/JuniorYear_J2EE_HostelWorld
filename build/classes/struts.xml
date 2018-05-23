@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+
+    <!-- 手动配置 -->
+    <!-- Add packages here -->
+    <package name="StrutsAction" extends="struts-default">
+    	<action name="register" class="StrutsAction.signUpAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="newCard" class="StrutsAction.createCardAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="recharge" class="StrutsAction.rechargeAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="home" class="StrutsAction.homeAction">
+    		<result name="home">index.html</result>
+    		<result name="register">register.html</result>
+    		<result name="login">login.html</result>
+    		<result name="cardInfo">membershipCard.html</result>
+    		<result name="hostelApplication">hostelApplication.html</result>
+    		<result name="hostelInfo">hostel.html</result>
+    		<result name="getApplication">checkApplication.html</result>
+    		<result name="getAllPlan">MyPlan.html</result>
+    		<result name="book">book.html</result>
+    		<result name="mybook">MyBills.html</result>
+    		<result name="checkin">HostelSearchBook.html</result>
+    		<result name="checkout">outHostel.html</result>
+    		<result name="settlement">settlement.html</result>
+    		<result name="personal">contact.html</result>
+    		<result name="hostelS">hostelStatistics.html</result>
+    		<result name="memberS">managerStatistics.html</result>
+    		<result name="makePlan">makePlan.html</result>
+    	</action>
+    	
+    	<!-- 得到会员或者店家信息的Action -->
+    	<action name="getInfo" class="StrutsAction.getMembershipInfoAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="login" class="StrutsAction.loginAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="getCardInfo" class="StrutsAction.getCardInfoAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="getHostelInfo" class="StrutsAction.getHostelInfoAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="hostelApplication" class="StrutsAction.hostelApplicationAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="getApplication" class="StrutsAction.getApplicationAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="getAppInfo" class="StrutsAction.getAppInfoAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="checkApplication" class="StrutsAction.checkApplicationAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="releasePlan" class="StrutsAction.releasePlanAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="getAllPlan" class="StrutsAction.getAllPlanAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="searchPlan" class="StrutsAction.searchPlanAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="book" class="StrutsAction.bookAction">
+    		<result name="success"></result>
+    	</action>
+    	
+    	<action name="searchMyBook" class="StrutsAction.searchMyBookAction">
+    		<result name="success"></result>
+    	</action>
+    	
+        <action name="cancelBook" class="StrutsAction.cancelBookAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="hostelSearchBook" class="StrutsAction.hostelSearchBookAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="checkin" class="StrutsAction.checkinAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="checkout" class="StrutsAction.outAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="getAccount" class="StrutsAction.getAccountAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="settlement" class="StrutsAction.settlementAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="logout" class="StrutsAction.logoutAction">
+        	<result name="success" type="redirect">/home?id=0</result>
+        </action>
+        
+        <action name="isAuthorized" class="StrutsAction.isAuthorizedAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="hostelStatistics" class="StrutsAction.hostelStatisticsAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="managerStatistics" class="StrutsAction.managerStatisticsAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="creditsEx" class="StrutsAction.creditsExchangeAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="updateCard" class="StrutsAction.updateCardAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="deleteCard" class="StrutsAction.deleteCardAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="hostelUpdate" class="StrutsAction.hostelUpdateAction">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="getUpdate" class="StrutsAction.getUpdateAcrion">
+        	<result name="success"></result>
+        </action>
+        
+        <action name="checkUpdate" class="StrutsAction.checkUpdateAction">
+        	<result name="success"></result>
+        </action>
+    </package>
+
+</struts>

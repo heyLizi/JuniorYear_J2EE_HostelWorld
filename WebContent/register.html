@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>用户注册</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+</head>
+<body>
+<!--header-->
+	<div class="navigation">
+			<div class="container-fluid">
+				<nav class="pull">
+					<ul>
+						<li><a  href="/HostelWorld/home?id=0">主页</a></li>
+						<li><a  href="about.html">关于我们</a></li>
+						<li><a  href="/HostelWorld/home?id=5">个人页面</a></li>
+					</ul>
+				</nav>			
+			</div>
+		</div>
+
+<div class="header">
+	<div class="container">
+		<!--logo-->
+			<div class="logo">
+				<h1><a href="index.html">客栈之家</a></h1>
+			</div>
+		<!--//logo-->
+		<div class="top-nav">
+			<ul class="right-icons">
+				<li><a  href="http://localhost:8080/HostelWorld/home?id=2"><i class="glyphicon glyphicon-user"> </i>登录</a></li>
+				<li><a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a></li>
+				
+			</ul>
+			<div class="nav-icon">
+				<div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+						<a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
+					</div>	
+			</div>
+		<div class="clearfix"> </div>
+			<!---pop-up-box---->
+			   
+				<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+				<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+			<!---//pop-up-box---->
+				<div id="small-dialog" class="mfp-hide">
+					    <!----- tabs-box ---->
+				<div class="sap_tabs">	
+				     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+						  <ul class="resp-tabs-list">
+						  	  <li class="resp-tab-item " aria-controls="tab_item-0" role="tab"><span>All Homes</span></li>
+							  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>For Sale</span></li>
+							  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>For Rent</span></li>
+							  <div class="clearfix"></div>
+						  </ul>				  	 
+						  <div class="resp-tabs-container">
+						  		<h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>All Homes</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
+								 	<div class="facts">
+									  	<div class="login">
+											<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+									 		<input type="submit" value="">
+									 	</div>        
+							        </div>
+						  		</div>
+							     <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>For Sale</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+									<div class="facts">									
+										<div class="login">
+											<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+									 		<input type="submit" value="">
+									 	</div> 
+							        </div>	
+								 </div>									
+							      <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>For Rent</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+									 <div class="facts">
+										<div class="login">
+											<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+									 		<input type="submit" value="">
+									 	</div> 
+							         </div>	
+							    </div>
+					      </div>
+					 </div>
+					 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+				    	<script type="text/javascript">
+						    $(document).ready(function () {
+						        $('#horizontalTab').easyResponsiveTabs({
+						            type: 'default', //Types: default, vertical, accordion           
+						            width: 'auto', //auto or any width like 600px
+						            fit: true   // 100% fit in a container
+						        });
+						    });
+			  			 </script>	
+				</div>
+				</div>
+				 <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+				</script>
+					
+		</div>
+		<div class="clearfix"> </div>
+		</div>	
+</div>
+<!--//-->	
+<div class=" banner-buying">
+	<div class=" container">
+	<h3><span>注册</span></h3> 
+	<!---->
+	<div class="clearfix"> </div>
+		<!--initiate accordion-->
+		<script type="text/javascript">
+			$(function() {
+			    var menu_ul = $('.menu > li > ul'),
+			           menu_a  = $('.menu > li > a');
+			    menu_ul.hide();
+			    menu_a.click(function(e) {
+			        e.preventDefault();
+			        if(!$(this).hasClass('active')) {
+			            menu_a.removeClass('active');
+			            menu_ul.filter(':visible').slideUp('normal');
+			            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+			        } else {
+			            $(this).removeClass('active');
+			            $(this).next().stop(true,true).slideUp('normal');
+			        }
+			    });
+			
+			});
+		</script>
+      		
+	</div>
+</div>
+<!--//header-->
+<!--contact-->
+<div class="login-right">
+	<div class="container">
+		<h3>注册</h3>
+		<div class="login-top">
+			<div class="form-info">
+				<form  method="post" id="register_form">
+					<input type="text" id="Name" name="Name"  placeholder="姓名" required="" >
+					<input type="password" id="password1" name="password1" placeholder="密码" required="">
+					<input type="password" id="password2" name="password2" placeholder="确认密码" required="">
+					<input type="text" id="PhoneNum" name="PhoneNum"  placeholder="联系方式（手机号）" required="" >
+					<div id="sex">
+						<label class="checkbox-inline">
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="男">男
+						</label>
+						<label class="checkbox-inline">
+					    	<input type="radio" name="optionsRadios" id="optionsRadios2" value="女">女
+					    </label>
+					</div>
+					<div id="divergence">
+						<label class="checkbox-inline">
+							<input type="radio" name="optionsRadios1" id="optionsRadios3" value="我要开店">我要开店
+						</label>
+						<label class="checkbox-inline">
+					    	<input type="radio" name="optionsRadios1" id="optionsRadios4" value="我要预订">我要预订
+					    </label>
+					</div>
+					<div id="login-submit">
+						<h5><a class="hvr-sweep-to-right">
+        					<input id="loginBtn" type="button" value="注册"></input>
+      					</a></h5>
+      				</div>
+				</form>
+				<p><div id="infor"></div></p>
+			</div>
+			<div class="log">
+				<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="87.8%" color=#987cb9 SIZE=3>
+				<p>已经有客栈之家的账号？   → <a href="login.html">登录</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//contact-->
+<!--footer-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-top-at">
+			<div class="col-md-3 amet-sed">
+				<h4>Our Company</h4>
+				<ul class="nav-bottom">
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="blog.html">For Sale By Owner Blog</a></li>
+					<li><a href="mobile_app.html">Mobile</a></li>
+					<li><a href="terms.html">Terms & Conditions</a></li>
+					<li><a href="privacy.html">Privacy Policy</a></li>	
+					<li><a href="blog.html">Blog</a></li>
+					
+				</ul>	
+			</div>
+			<div class="col-md-3 amet-sed ">
+				<h4>Work With Us</h4>
+					<ul class="nav-bottom">
+						<li><a href="single.html">Real Estate Brokers</a></li>
+						<li><a href="single.html">Business Development</a></li>
+						<li><a href="single.html">Affiliate Programs</a></li>
+						<li><a href="contact.html">Sitemap</a></li>
+						<li><a href="career.html">Careers</a></li>
+						<li><a href="feedback.html">Feedback</a></li>	
+					</ul>	
+			</div>
+			<div class="col-md-3 amet-sed">
+				<h4>Customer Support</h4>
+				<p>Mon-Fri, 7AM-7PM </p>
+				<p>Sat-Sun, 8AM-5PM </p>
+				<p>183-6292-7727</p>
+					<ul class="nav-bottom">
+						<li><a href="#">Live Chat</a></li>
+						<li><a href="faqs.html">Frequently Asked Questions</a></li>
+						<li><a href="suggestion.html">Make a Suggestion</a></li>
+					</ul>	
+			</div>
+			<div class="col-md-3 amet-sed ">
+				<h4>Property Services</h4>
+				   <ul class="nav-bottom">
+						<li><a href="single.html">Residential Property</a></li>
+						<li><a href="single.html">Commercial Property</a></li>
+						<li><a href="login.html">Login</a></li>
+						<li><a href="register.html">Register</a></li>
+						<li><a href="typo.html">Short Codes</a></li>	
+					</ul>	
+					<ul class="social">
+						<li><a href="#"><i> </i></a></li>
+						<li><a href="#"><i class="gmail"> </i></a></li>
+						<li><a href="#"><i class="twitter"> </i></a></li>
+						<li><a href="#"><i class="camera"> </i></a></li>
+						<li><a href="#"><i class="dribble"> </i></a></li>
+					</ul>
+			</div>
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--//footer-->
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$('#loginBtn').click(function(){
+		//alert($('#Name').val());
+		//alert($('#password1').val());
+		//alert($('#password2').val());
+		//alert($('#PhoneNum').val());
+		//alert($('#sex input[type=radio]:checked').val());
+		//alert($('#divergence input[type=radio]:checked').val());
+		if($('#Name').val()==undefined||$('#password1').val()==undefined||$('#password2').val()==undefined||$('#PhoneNum').val()==undefined||$('#sex input[type=radio]:checked').val()==undefined||$('#divergence input[type=radio]:checked').val()==undefined){
+			document.getElementById('infor').innerHTML='<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Fail!</strong>您还没有将表单填写完整，请将表单填写完整！！<a href="http://localhost:8080/web/home.html"><strong>   返回首页   </strong></a></div>';
+		}else if($('#password1').val()==$('#password2').val()){
+			$.ajax({
+				url:"http://localhost:8080/HostelWorld/register",
+				type:"POST",
+				data:$("#register_form").serialize(),
+				success:function(data){
+					if(data=="success"){
+						document.getElementById('infor').innerHTML='<div class="alert alert-success" role="alert"style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Success!</strong>注册成功</div>';
+						setTimeout('toSearch()',1000);
+					}
+				}
+			});
+			}else{
+				document.getElementById('infor').innerHTML='<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Fail!</strong>注册失败，请检查两次密码是否正确<a href="http://localhost:8080/web/home.html"><strong>   返回首页   </strong></a></div>';
+		}
+	});
+});
+function toSearch(){
+    window.location.href="/HostelWorld/home?id=5";
+}
+
+</script>
+</body>
+</html>

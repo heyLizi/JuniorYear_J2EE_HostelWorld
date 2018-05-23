@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>会员卡信息</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+</head>
+<body>
+<!-- 模态框1 -->
+<div class="modal fade" id="newCard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><b>会员卡办理</b></h4>
+            </div>
+            <div class="modal-body">
+            	<div class="form-info">
+            	<form method="post" id="register_form">
+            		<input type="text" class="text" id="account" name="accountName" placeholder="请输入银行卡号" required="" style="margin-left: 30px;">
+            		<div style="width:20%;margin:0 auto;text-align:middle;">
+            			<label class="hvr-sweep-to-right">
+				           	<input id="loginBtn" type="button" value="提交">
+				    	</label>
+				    </div>
+            	</form>
+            	</div>
+            </div>
+        </div><!-- /.modal-content -->
+        <div class="modal-footer">
+        	<div id="infor1"></div>
+        </div>
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框1 -->
+
+<!-- 模态框2 -->
+<div class="modal fade" id="recharge" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><b>充值</b></h4>
+            </div>
+            <div class="modal-body">
+            	<div class="form-info">
+	            	<form method="post" id="recharge_form">
+	            		<input type="text" class="text" id="rechargeNum" name="recharge" placeholder="请输入充值金额" required="" style="margin-left: 30px;">
+					    <div style="width:20%;margin:0 auto;text-align:middle;">
+            				<label class="hvr-sweep-to-right">
+				           		<input id="rechargeBtn" type="button" value="提交">
+				    		</label>
+				    	</div>
+	            	</form>
+            	</div>
+            </div>
+            <div class="modal-footer">
+                <div id="infor"></div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框2 -->
+
+<!-- 模态框3 -->
+<div class="modal fade" id="newBank" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><b>修改银行账号</b></h4>
+            </div>
+            <div class="modal-body">
+            	<div class="form-info">
+	            	<form method="post" id="card_form">
+	            		<input type="text" class="text" id="newAccount" name="newAccount" placeholder="请输入新的银行卡号" required="" style="margin-left: 30px;">
+					    <div style="width:20%;margin:0 auto;text-align:middle;">
+            				<label class="hvr-sweep-to-right">
+				           		<input id="newAccountBtn" type="button" value="提交">
+				    		</label>
+				    	</div>
+	            	</form>
+            	</div>
+            </div>
+            <div class="modal-footer">
+                <div id="infor2"></div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框3 -->
+
+<!-- 模态框4 -->
+<div class="modal fade" id="authIntro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><b>权限说明</b></h4>
+            </div>
+            <div class="modal-body">
+            	<h4>所有在我系统进行消费的会员，在消费达到一定程度之后，即可自动升级会员等级，越高的会员等级将有越高的优惠。</h4>
+            	<h4>等级说明：</h4>
+            	<h4>总消费低于500元，会员等级0，不享受优惠</h4>
+            	<h4>总消费超过500元低于1000元，会员等级1，享受九五折优惠</h4>
+            	<h4>总消费超过1000元低于3000元，会员等级2，享受九折优惠</h4>
+            	<h4>总消费超过3000元低于5000元，会员等级3，享受八五折优惠</h4>
+            	<h4>总消费超过5000元低于10000元，会员等级4，享八折优惠</h4>
+            	<h4>总消费超过10000元低于50000元，会员等级5，享受七五折优惠</h4>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框4 -->
+
+<!--header-->
+	<div class="navigation">
+			<div class="container-fluid">
+				<nav class="pull">
+					<ul>
+						<li><a  href="/HostelWorld/home?id=0">主页</a></li>
+						<li><a  href="about.html">关于我们</a></li>
+						<li><a  href="/HostelWorld/home?id=5">个人页面</a></li>
+					</ul>
+				</nav>			
+			</div>
+		</div>
+
+<div class="header">
+	<div class="container">
+		<!--logo-->
+			<div class="logo">
+				<h1><a href="index.html">客栈之家</a></h1>
+			</div>
+		<!--//logo-->
+		<div class="top-nav">
+			<ul class="right-icons">
+				<li><a  href="http://localhost:8080/HostelWorld/logout"><i class="glyphicon glyphicon-user"> </i>注销</a></li>
+				<li><a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a></li>
+				
+			</ul>
+			<div class="nav-icon">
+				<div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+						<a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
+					</div>	
+				
+			</div>
+		<div class="clearfix"> </div>
+			<!---pop-up-box---->
+				    
+				<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+				<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+			<!---//pop-up-box---->
+				<div id="small-dialog" class="mfp-hide">
+					    <!----- tabs-box ---->
+				<div class="sap_tabs">	
+				     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+						  <ul class="resp-tabs-list">
+						  	  <li class="resp-tab-item " aria-controls="tab_item-0" role="tab"><span>All Homes</span></li>
+							  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>For Sale</span></li>
+							  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>For Rent</span></li>
+							  <div class="clearfix"></div>
+						  </ul>				  	 
+						  <div class="resp-tabs-container">
+						  		<h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>All Homes</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
+								 	<div class="facts">
+									  	<div class="login">
+											<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+									 		<input type="submit" value="">
+									 	</div>        
+							        </div>
+						  		</div>
+							     <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>For Sale</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+									<div class="facts">									
+										<div class="login">
+											<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+									 		<input type="submit" value="">
+									 	</div> 
+							        </div>	
+								 </div>									
+							      <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>For Rent</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+									 <div class="facts">
+										<div class="login">
+											<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+									 		<input type="submit" value="">
+									 	</div> 
+							         </div>	
+							    </div>
+					      </div>
+					 </div>
+					 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+				    	<script type="text/javascript">
+						    $(document).ready(function () {
+						        $('#horizontalTab').easyResponsiveTabs({
+						            type: 'default', //Types: default, vertical, accordion           
+						            width: 'auto', //auto or any width like 600px
+						            fit: true   // 100% fit in a container
+						        });
+						    });
+			  			 </script>	
+				</div>
+				</div>
+				 <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+				</script>
+	
+		</div>
+		<div class="clearfix"> </div>
+		</div>	
+</div>
+<!--//-->	
+<div class=" banner-buying">
+	<div class=" container">
+	<h3><span>会员卡</span></h3> 
+	<!---->
+	<div class="menu-right">
+		 <ul class="menu">
+			<li class="item1"><a href="#"> <span style="margin-right:10px;"></span>选项<i class="glyphicon glyphicon-menu-down"> </i> </a>
+			<ul class="cute">
+				<li class="subitem1"><a href="/HostelWorld/home?id=13">预订 </a></li>
+				<li class="subitem2"><a href="/HostelWorld/home?id=14">我的订单 </a></li>
+				<li class="subitem3"><a href="/HostelWorld/home?id=3">我的会员卡</a></li>
+			</ul>
+		</li>
+		</ul>
+	</div>
+	<div class="clearfix"> </div>
+		<!--initiate accordion-->
+		<script type="text/javascript">
+			$(function() {
+			    var menu_ul = $('.menu > li > ul'),
+			           menu_a  = $('.menu > li > a');
+			    menu_ul.hide();
+			    menu_a.click(function(e) {
+			        e.preventDefault();
+			        if(!$(this).hasClass('active')) {
+			            menu_a.removeClass('active');
+			            menu_ul.filter(':visible').slideUp('normal');
+			            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+			        } else {
+			            $(this).removeClass('active');
+			            $(this).next().stop(true,true).slideUp('normal');
+			        }
+			    });
+			
+			});
+		</script>
+      		
+	</div>
+</div>
+<!--//header-->
+<!--contact-->
+<div class="contact">
+	<div class="container" >
+		<h3>会员卡</h3>
+		<div class="contact-top" id="CardInfo"></div>
+	</div>
+</div>
+<!--//contact-->
+<!--footer-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-top-at">
+			<div class="col-md-3 amet-sed">
+				<h4>Our Company</h4>
+				<ul class="nav-bottom">
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="blog.html">For Sale By Owner Blog</a></li>
+					<li><a href="mobile_app.html">Mobile</a></li>
+					<li><a href="terms.html">Terms & Conditions</a></li>
+					<li><a href="privacy.html">Privacy Policy</a></li>	
+					<li><a href="blog.html">Blog</a></li>
+					
+				</ul>	
+			</div>
+			<div class="col-md-3 amet-sed ">
+				<h4>Work With Us</h4>
+					<ul class="nav-bottom">
+						<li><a href="single.html">Real Estate Brokers</a></li>
+						<li><a href="single.html">Business Development</a></li>
+						<li><a href="single.html">Affiliate Programs</a></li>
+						<li><a href="contact.html">Sitemap</a></li>
+						<li><a href="career.html">Careers</a></li>
+						<li><a href="feedback.html">Feedback</a></li>	
+					</ul>	
+			</div>
+			<div class="col-md-3 amet-sed">
+				<h4>Customer Support</h4>
+				<p>Mon-Fri, 7AM-7PM </p>
+				<p>Sat-Sun, 8AM-5PM </p>
+				<p>177-869-6559</p>
+					<ul class="nav-bottom">
+						<li><a href="#">Live Chat</a></li>
+						<li><a href="faqs.html">Frequently Asked Questions</a></li>
+						<li><a href="suggestion.html">Make a Suggestion</a></li>
+					</ul>	
+			</div>
+			<div class="col-md-3 amet-sed ">
+				<h4>Property Services</h4>
+				   <ul class="nav-bottom">
+						<li><a href="single.html">Residential Property</a></li>
+						<li><a href="single.html">Commercial Property</a></li>
+						<li><a href="login.html">Login</a></li>
+						<li><a href="register.html">Register</a></li>
+						<li><a href="typo.html">Short Codes</a></li>	
+					</ul>	
+					<ul class="social">
+						<li><a href="#"><i> </i></a></li>
+						<li><a href="#"><i class="gmail"> </i></a></li>
+						<li><a href="#"><i class="twitter"> </i></a></li>
+						<li><a href="#"><i class="camera"> </i></a></li>
+						<li><a href="#"><i class="dribble"> </i></a></li>
+					</ul>
+			</div>
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--//footer-->
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	$.ajax({
+		url:"http://localhost:8080/HostelWorld/getCardInfo",
+		"type":"GET",
+		"dataType":"json",
+		"contentType": "application/json; charset=utf-8",
+		"success": function(data){
+			var temp = eval(data);
+			if(temp.fail=="fail"){
+				document.getElementById('CardInfo').innerHTML = '<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>您还没有办理会员卡！<a href="#" data-toggle="modal" data-target="#newCard"><strong>   点击办理   </strong></a></div>';
+			}else{
+				document.getElementById('CardInfo').innerHTML = "<div class='col-md-6 contact-top1'>"+
+				"  <div class='contact-address'>"+
+				  "<div class='clearfix'></div>" +
+				  	"<div class='col-md-6 contact-address1'>"+
+					  	 "<h5>会员卡号:<span>"+temp.membershipID+"</span></h5>"+
+				  	"</div>"+
+				  "	<div class='clearfix'></div>"+
+				  	"<div class='col-md-6 contact-address1'>"+
+					  	 "<h5>会员状态:<span>"+temp.qualification+"</span></h5>"+
+				  	"</div>"+
+				  	"<div class='clearfix'></div>"+
+				  "</div>"+
+				  "<div class='contact-address'>"+
+				  	"<div class='col-md-6 contact-address1'>"+
+					  	 "<h5>银行卡号:<span>"+temp.bankAccount+"</span></h5>"+
+			       " </div>"+
+				  	"<div class='clearfix'></div>"+
+				 " </div>"+
+				  "<div class='contact-address'>"+
+				  	"<div class='col-md-6 contact-address1'>"+
+					  	" <h5>当前余额:<span>"+temp.banlance+"</span></h5>"+
+			        "</div>"+
+				  	"<div class='clearfix'></div>"+
+				  "</div>"+
+				"<div class='clearfix'> </div>"+
+				  "<div class='contact-address'>"+
+			  	"<div class='col-md-6 contact-address1'>"+
+				  	 "<h5>开始日期:<span>"+temp.startDate+"</span></h5>"+
+		        "</div>"+
+			  	"<div class='clearfix'></div>"+
+			  "</div>"+
+			  "<div class='contact-address'>"+
+			  	"<div class='col-md-6 contact-address1'>"+
+				  	 "<h5>结束日期:<span>"+temp.endDate+"</span></h5>"+
+		      "</div>"+
+			  	"<div class='clearfix'></div>"+
+			 " </div>"+
+			  "<div class='contact-address'>"+
+			  	"<div class='col-md-6 contact-address1'>"+
+				  	 "<h5>消费总额:<span>"+temp.totalPay+"</span></h5>"+
+		      "</div>"+
+			  	"<div class='clearfix'></div>"+
+			 " </div>"+
+			  "<div class='contact-address'>"+
+			  	"<div class='col-md-6 contact-address1'>"+
+				  	 "<h5 >当前权限:<span>"+temp.authority+"</span></h5>"+
+				  	 "<a href='#' data-toggle='modal' data-target='#authIntro' style='font-size:0.9em;'>权限说明</a>"+
+		     " </div>"+
+			  	"<div class='clearfix'></div>"+
+			 " </div>"+
+			  "<div class='contact-address'>"+
+			  	"<div class='col-md-6 contact-address1'>"+
+				  	 "<h5>会员积分:<span>"+temp.credits+"</span></h5>"+
+		     " </div>"+
+			  	"<div class='clearfix'></div>"+
+			  "</div>"+"</div><div class='clearfix'></div>"+
+			  "<div class='card-func'>"+
+			  "<button id='recharge' type='button' class='btn btn-primary' data-toggle='modal'  style='margin-bottom:0px;' data-target='#recharge'>充   值</button>"+
+			  "<button id='creditsExchange' type='button' class='btn btn-primary' style='margin-bottom:0px;margin-left: 50px;'>积分兑换</button>"+
+			  "<button id='updateCard' type='button' class='btn btn-primary' style='margin-bottom:0px;margin-left: 50px;' data-toggle='modal' data-target='#newBank'>修改卡信息</button>"+
+			  "<button id='deleteCard' type='button' class='btn btn-danger' style='margin-bottom:0px;margin-left: 50px;'>取消卡资格</button>"+
+			 "</div>";
+			}
+		},
+		"error":function(data){
+			alert("Error");
+		}
+	});
+
+
+	$('#loginBtn').click(function(){
+		//alert($('#account').val());
+		if($('#account').val()==undefined){
+			document.getElementById('infor').innerHTML='<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Fail!</strong>您还没有将表单填写完整，请将表单填写完整！！<a href="http://localhost:8080/web/home.html"><strong>   返回首页   </strong></a></div>';
+		}else{
+			$.ajax({
+				url:"http://localhost:8080/HostelWorld/newCard",
+				type:"POST",
+				data:$("#register_form").serialize(),
+				success:function(data){
+					if(data=="success"){
+						document.getElementById('infor').innerHTML='<div class="alert alert-success" role="alert"style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Success!</strong>新卡创建成功</div>';
+						setTimeout('toSearch()',1000);
+					}else{
+						document.getElementById('infor').innerHTML='<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Fail!</strong>登录失败，请检查密码是否正确<a href="http://localhost:8080/web/home.html"><strong>   返回首页   </strong></a></div>';
+					}
+				}
+			});
+		}
+	});
+
+
+	$('#rechargeBtn').click(function(){
+		//alert($('#rechargeNum').val());
+		if($('#rechargeNum').val()==undefined){
+			document.getElementById('infor').innerHTML='<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Fail!</strong>您还没有将表单填写完整，请将表单填写完整！！<a href="http://localhost:8080/web/home.html"><strong>   返回首页   </strong></a></div>';
+		}else{
+			$.ajax({
+				url:"http://localhost:8080/HostelWorld/recharge",
+				type:"POST",
+				data:$("#recharge_form").serialize(),
+				success:function(data){
+					if(data=="success"){
+						document.getElementById('infor1').innerHTML='<div class="alert alert-success" role="alert"style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Success!</strong>充值成功</div>';
+						setTimeout('toSearch()',1000);
+					}else{
+						document.getElementById('infor1').innerHTML='<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Fail!</strong>未知错误！请稍等！！<a href="http://localhost:8080/web/home.html"><strong>   返回首页   </strong></a></div>';
+					}
+				}
+			});
+		}
+	});
+
+	$('#creditsExchange').click(function(){
+		//alert($('#rechargeNum').val());
+		$.ajax({
+			url:"http://localhost:8080/HostelWorld/creditsEx",
+			"type":"GET",
+			"success": function(data){
+				if(data=="success"){
+					alert("积分兑换成功！！！");
+					setTimeout('toSearch()',1000);
+				}
+			},
+			"error":function(data){
+				alert("Error");
+			}
+		});
+	});
+	
+
+	$('#newAccountBtn').click(function(){
+		//alert($('#rechargeNum').val());
+		if($('#newAccount').val()==undefined){
+			document.getElementById('infor').innerHTML='<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Fail!</strong>您还没有将表单填写完整，请将表单填写完整！！<a href="http://localhost:8080/web/home.html"><strong>   返回首页   </strong></a></div>';
+		}else{
+			$.ajax({
+				url:"http://localhost:8080/HostelWorld/updateCard",
+				type:"POST",
+				data:$("#card_form").serialize(),
+				success:function(data){
+					if(data=="success"){
+						document.getElementById('infor2').innerHTML='<div class="alert alert-success" role="alert"style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Success!</strong>修改成功</div>';
+						setTimeout('toSearch()',1000);
+					}else{
+						document.getElementById('infor2').innerHTML='<div class="alert alert-danger" role="alert" style="text-align: center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Fail!</strong>未知错误！请稍等！！<a href="http://localhost:8080/web/home.html"><strong>   返回首页   </strong></a></div>';
+					}
+				}
+			});
+		}
+	});
+
+	$('#deleteCard').click(function(){
+		//alert($('#rechargeNum').val());
+		$.ajax({
+			url:"http://localhost:8080/HostelWorld/deleteCard",
+			"type":"GET",
+			"success": function(data){
+				if(data=="success"){
+					alert("会员资格取消成功");
+					setTimeout('toSearch()',1000);
+				}
+			},
+			"error":function(data){
+				alert("Error");
+			}
+		});
+	});
+	
+	
+});
+
+function toSearch(){
+    window.location.href="/HostelWorld/home?id=3";
+}
+</script>
+</body>
+</html>
